@@ -1,0 +1,17 @@
+body {
+  background-color: rgb(177, 237, 236);
+}
+.container {
+  margin: 0 auto;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(162, 184, 232);
+  max-width: 300px;
+  padding: 10px;
+  border-radius: 20px;
+}
+ul,
+li {
+  list-style: none;
+  padding: 0;
+}
