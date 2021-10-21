@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+
 import styles from './Navigation.module.css';
 
 export default function Navigation() {
@@ -8,7 +9,7 @@ export default function Navigation() {
         HomePage
       </NavLink>
 
-      <NavLink to="/movies" className={styles.link} activeClassName={styles.activeLink}>
+      <NavLink exact to="/movies" className={styles.link} activeClassName={styles.activeLink}>
         MoviesPage
       </NavLink>
 
