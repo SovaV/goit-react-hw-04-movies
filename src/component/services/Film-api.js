@@ -14,14 +14,14 @@ export function fetchMovies(name) {
   return fetchFilmsErrorHandling(`${BASE_URL}/search/movie?api_key=${API_KEY}&query=${name}`);
 }
 
-export function fetchDetails(movie_id) {
-  return fetchFilmsErrorHandling(`${BASE_URL}/movie/${movie_id}?api_key=${API_KEY}`);
+export function fetchDetails(movieId) {
+  return fetchFilmsErrorHandling(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`);
 }
 
-export function fetchCredits(movie_id) {
-  return fetchFilmsErrorHandling(`${BASE_URL}/movie/${movie_id}/credits?api_key=${API_KEY}`);
+export function fetchCredits(movieId) {
+  return fetchFilmsErrorHandling(`${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}`);
 }
 
-export function fetchReviews(movie_id) {
-  return fetchFilmsErrorHandling(`${BASE_URL}/movie/${movie_id}/reviews?api_key=${API_KEY}`);
+export function fetchReviews(movieId) {
+  return fetchFilmsErrorHandling(`${BASE_URL}/movie/${movieId}/reviews?api_key=${API_KEY}`);
 }

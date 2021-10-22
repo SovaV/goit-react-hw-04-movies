@@ -12,24 +12,6 @@ export default function Navigation() {
       <NavLink exact to="/movies" className={styles.link} activeClassName={styles.activeLink}>
         MoviesPage
       </NavLink>
-
-      <NavLink to="/movies/:movieId" className={styles.link} activeClassName={styles.activeLink}>
-        MovieDetailsPage
-      </NavLink>
-      <NavLink
-        to="/movies/:movieId/cast"
-        className={styles.link}
-        activeClassName={styles.activeLink}
-      >
-        Cast
-      </NavLink>
-      <NavLink
-        to="/movies/:movieId/reviews"
-        className={styles.link}
-        activeClassName={styles.activeLink}
-      >
-        Reviews
-      </NavLink>
     </nav>
   );
 }
