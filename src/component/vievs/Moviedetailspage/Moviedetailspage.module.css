@@ -1,11 +1,18 @@
 .box {
+  /* border-top: 2px solid black; */
   display: flex;
+  margin: 25px;
 }
 
 .link {
   display: inline;
-  margin: 10px;
+  margin-bottom: 20px;
   color: black;
+  padding-left: 30px;
+}
+.link:not(:first-child) {
+  border-bottom: 2px solid #000;
+  padding-bottom: 25px;
 }
 .activeLink {
   composes: link;
@@ -19,4 +26,45 @@
 }
 .wapper {
   display: grid;
+}
+.btn {
+  display: block;
+  padding: 5px;
+  margin: 15px 5px 5px 25px;
+  text-align: center;
+  border: 1px solid black;
+  width: 100px;
+  border-radius: 5px;
+  align-items: center;
+}
+.img {
+  border-radius: 5px;
+  margin-right: 30px;
+}
+.text {
+  border-top: 2px solid #000;
+  padding-top: 10px;
+  margin: 0;
+  text-align: center;
+}
+/* // credits */
+.credits_list {
+  display: grid;
+  max-width: calc(100vw - 70px);
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 16px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+.credits_img {
+  max-width: 250px;
+  height: 250px;
+}
+ul,
+li {
+  margin: 0 auto;
 }

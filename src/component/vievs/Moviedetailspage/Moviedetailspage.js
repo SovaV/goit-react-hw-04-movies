@@ -24,7 +24,6 @@ export default function Moviedetailspage() {
   const [error, setError] = useState(null);
   // const history = useHistory();
   const location = useLocation();
-  console.log('Moviedetailspage:', location);
 
   useEffect(() => {
     fetchDetailsAPI
@@ -40,7 +39,9 @@ export default function Moviedetailspage() {
   // };
   return (
     <>
-      <Link to={location?.state?.from ?? '/movies'}>← Go Back</Link>
+      <Link to={location?.state?.from ?? '/movies'} className={m.btn}>
+        ← Go Back
+      </Link>
 
       {/* <button type="button" onClick={onGoBack}>
         ← Go Back
@@ -49,6 +50,7 @@ export default function Moviedetailspage() {
       {movies && (
         <div className={m.box}>
           <img
+            className={m.img}
             src={
               movies.poster_path
                 ? `https://image.tmdb.org/t/p/w500/${movies.poster_path}`
@@ -79,7 +81,7 @@ export default function Moviedetailspage() {
           </div>
         </div>
       )}
-      <p>Additional information</p>
+      <p className={m.text}>Additional information</p>
       <div className={m.wapper}>
         <NavLink
           to={{

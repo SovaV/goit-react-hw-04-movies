@@ -11,3 +11,9 @@
   composes: link;
   color: #2196f3;
 }
+nav {
+  border-bottom: 3px solid black;
+  align-items: center;
+  text-align: center;
+  box-shadow: 4px 13px 8px 0px rgba(34, 60, 80, 0.2);
+}
