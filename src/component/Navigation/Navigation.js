@@ -6,11 +6,11 @@ export default function Navigation() {
   return (
     <nav>
       <NavLink exact to="/" className={styles.link} activeClassName={styles.activeLink}>
-        HomePage
+        Home
       </NavLink>
 
-      <NavLink exact to="/movies" className={styles.link} activeClassName={styles.activeLink}>
-        MoviesPage
+      <NavLink to="/movies" className={styles.link} activeClassName={styles.activeLink}>
+        Movies
       </NavLink>
     </nav>
   );

@@ -3,10 +3,10 @@ body {
 }
 .container {
   margin: 0 auto;
-  align-items: center;
-  text-align: center;
+  /* align-items: center; */
+  /* text-align: center; */
   background-color: rgb(162, 184, 232);
-  max-width: 300px;
+  /* max-width: 300px; */
   padding: 10px;
   border-radius: 20px;
 }

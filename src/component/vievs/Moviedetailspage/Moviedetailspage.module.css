@@ -1,0 +1,22 @@
+.box {
+  display: flex;
+}
+
+.link {
+  display: inline;
+  margin: 10px;
+  color: black;
+}
+.activeLink {
+  composes: link;
+  color: #2196f3;
+}
+.genres__list {
+  display: flex;
+}
+.genres__item {
+  padding-right: 5px;
+}
+.wapper {
+  display: grid;
+}
