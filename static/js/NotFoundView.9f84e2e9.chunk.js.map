@@ -1,0 +1,1 @@
+{"version":3,"sources":["component/vievs/NotFoundView.js"],"names":["NotFoundView"],"mappings":"+MAAe,SAASA,IACtB,OAAO","file":"static/js/NotFoundView.9f84e2e9.chunk.js","sourcesContent":["export default function NotFoundView() {\r\n  return <h1>404 Страница не найдена :(</h1>;\r\n}\r\n"],"sourceRoot":""}
