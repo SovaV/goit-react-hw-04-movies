@@ -22,7 +22,7 @@ export default function HomePage() {
     <>
       {movies && (
         <div>
-          <h2>Trending today</h2>
+          <h2 className={h.title}>Trending today</h2>
           <ul className={h.list}>
             {movies.map(({ title, id, poster_path }) => (
               <li key={id} className={h.item}>

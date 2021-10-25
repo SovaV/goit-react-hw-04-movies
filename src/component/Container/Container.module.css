@@ -1,17 +1,16 @@
 body {
-  background-color: rgb(240, 247, 246);
+  background: linear-gradient(90deg, #c58b79, #ae1b53);
 }
 .container {
   margin: 0 auto;
-  /* align-items: center;
-  text-align: center; */
+
   max-width: 100vw;
-  /* padding: 20px; */
   border-radius: 20px;
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 16 px;
   padding-bottom: 24 px;
+  display: contents;
 }
 ul,
 li {

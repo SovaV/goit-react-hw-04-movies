@@ -21,13 +21,15 @@ Searchbar {
  * Стили компонента SearchForm
  */
 .SearchForm {
+  margin-top: 35px;
   display: flex;
-  align-items: center;
   width: 100%;
   max-width: 600px;
   background-color: #fff;
   border-radius: 3px;
   overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .button {

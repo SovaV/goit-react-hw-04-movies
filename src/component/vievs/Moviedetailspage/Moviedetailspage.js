@@ -7,6 +7,7 @@ import {
   // useHistory,
   useLocation,
   Link,
+  Switch,
 } from 'react-router-dom';
 
 import Spiner from '../../Loader/Loader';
@@ -35,11 +36,11 @@ export default function Moviedetailspage() {
       .catch(error => setError(error));
   }, [movieId]);
   // const onGoBack = () => {
-  //   history.push(location?.state?.from ?? '/movies');
+  //   history.push(location?.state?.from || '/movies');
   // };
   return (
     <>
-      <Link to={location?.state?.from ?? '/movies'} className={m.btn}>
+      <Link to={location?.state?.from || '/movies'} className={m.btn}>
         ← Go Back
       </Link>
 
@@ -67,7 +68,7 @@ export default function Moviedetailspage() {
             <b>Overview</b>
             <p>{movies.overview}</p>
             {movies.genres && (
-              <div>
+              <div className={m.genres__box}>
                 <b>Genres</b>
                 <ul className={m.genres__list}>
                   {movies.genres.map((item, index) => (
@@ -105,12 +106,14 @@ export default function Moviedetailspage() {
         </NavLink>
 
         <Suspense fallback={<Spiner />}>
-          <Route exact path={`${path}:movieId/cast`}>
-            <Credits movieId={movieId} />
-          </Route>
-          <Route exact path={`${path}:movieId/reviews`}>
-            <Reviews movieId={movieId} />
-          </Route>
+          <Switch>
+            <Route exact path={`${path}:movieId/cast`}>
+              <Credits movieId={movieId} />
+            </Route>
+            <Route exact path={`${path}:movieId/reviews`}>
+              <Reviews movieId={movieId} />
+            </Route>
+          </Switch>
         </Suspense>
       </div>
     </>

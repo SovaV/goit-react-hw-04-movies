@@ -30,7 +30,7 @@ export default function Searchbar({ onSubmit }) {
           type="text"
           autocomplete="off"
           autofocus
-          placeholder="Search images and photos"
+          placeholder="Search movies"
         />
       </form>
     </header>
