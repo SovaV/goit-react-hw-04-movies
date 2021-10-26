@@ -6,8 +6,8 @@ async function fetchFilmsErrorHandling(url = '', config = {}) {
   return response.ok ? await response.json() : Promise.reject(new Error('Not found'));
 }
 
-export function fetchTrending() {
-  return fetchFilmsErrorHandling(`${BASE_URL}/trending/movie/day?api_key=${API_KEY}`);
+export function fetchTrending(page) {
+  return fetchFilmsErrorHandling(`${BASE_URL}/trending/movie/day?api_key=${API_KEY}&page=${page}`);
 }
 
 export function fetchMovie(query, page) {

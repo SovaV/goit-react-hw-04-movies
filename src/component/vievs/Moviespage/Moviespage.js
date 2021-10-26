@@ -4,41 +4,64 @@ import * as fetchDetailsAPI from '../../services/Film-api';
 import Searchbar from '../../Searchbar/Searchbar';
 import errorFilm from '../../img/no_poster.jpg';
 import m from './Moviespage.module.css';
-
+import Spiner from '../../Loader/Loader';
+const Status = {
+  IDLE: 'idle', // стоїть на місці
+  PENDING: 'pending', // очікується
+  RESOLVED: 'resolved', // виконалось
+  REJECTED: 'rejected', // відхилено
+};
 export default function Moviespage() {
-  const [movies, setMovies] = useState(null);
+  const [movies, setMovies] = useState([]);
   const [error, setError] = useState();
-  // const [status, setStatus] = useState(Status.IDLE);
+  const [page, setPage] = useState(1);
+  const [status, setStatus] = useState(Status.IDLE);
   const { url } = useRouteMatch();
   const history = useHistory();
   const location = useLocation();
   const searchName = new URLSearchParams(location.search).get('name') ?? '';
-
+  const [text, setText] = useState(searchName ?? '');
   useEffect(() => {
-    if (!searchName) {
+    if (!text) {
       return;
     }
-
     fetchDetailsAPI
-      .fetchMovie(searchName)
+      .fetchMovie(text, page)
       .then(response => {
-        const data = response.results;
-
-        setMovies(data);
+        setMovies(prevState => [...prevState, ...response.results]);
+        // setStatus(Status.PENDING);
+        setStatus(Status.RESOLVED);
+        // if (page !== 1) {
+        //   window.scrollTo({
+        //     top: document.body.scrollHeight,
+        //     behavior: 'smooth',
+        //   });
+        // }
+        if (movies.total === 0) {
+          return Promise.reject(new Error('не верный ввод'));
+        }
       })
       .catch(error => {
         setError(error);
+        setStatus(Status.REJECTED);
       });
-  }, [searchName]);
+  }, [text, page]);
 
   const onChangeSearch = name => {
+    if (name === text) return;
+    setText(name);
+    setMovies([]);
+    setPage(1);
     history.push({ ...location, search: `name=${name}` });
   };
-
+  const btnFetch = () => {
+    setPage(prevState => prevState + 1);
+  };
   return (
     <>
       <Searchbar onSubmit={onChangeSearch} />
-      {movies && (
+      {status === Status.PENDING && <Spiner />}
+      {status === Status.RESOLVED && (
         <ul className={m.list}>
           {movies.map(({ id, title, poster_path }) => (
             <li key={id} className={m.item}>
@@ -58,6 +81,12 @@ export default function Moviespage() {
             </li>
           ))}
         </ul>
+      )}
+      ;
+      {movies.length !== 0 && (
+        <button type="button" onClick={btnFetch} className={m.btn}>
+          Load More
+        </button>
       )}
     </>
   );

@@ -28,8 +28,8 @@ export default function Searchbar({ onSubmit }) {
           onChange={hendleChange}
           className={s.input}
           type="text"
-          autocomplete="off"
-          autofocus
+          // autocomplete="off"
+          // autofocus
           placeholder="Search movies"
         />
       </form>
