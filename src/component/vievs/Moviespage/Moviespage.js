@@ -31,12 +31,12 @@ export default function Moviespage() {
         setMovies(prevState => [...prevState, ...response.results]);
         // setStatus(Status.PENDING);
         setStatus(Status.RESOLVED);
-        // if (page !== 1) {
-        //   window.scrollTo({
-        //     top: document.body.scrollHeight,
-        //     behavior: 'smooth',
-        //   });
-        // }
+        if (page !== 1) {
+          window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth',
+          });
+        }
         if (movies.total === 0) {
           return Promise.reject(new Error('не верный ввод'));
         }
@@ -45,6 +45,12 @@ export default function Moviespage() {
         setError(error);
         setStatus(Status.REJECTED);
       });
+    // .finally(() => {
+    //   window.scrollTo({
+    //     top: document.body.scrollHeight,
+    //     behavior: 'smooth',
+    //   });
+    // });
   }, [text, page]);
 
   const onChangeSearch = name => {
